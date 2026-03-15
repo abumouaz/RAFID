@@ -1,15 +1,15 @@
 # Deploy RAFID (Option 1)
 
-## 1) Backend on Railway
+## 1) Backend on Render (PostgreSQL)
 
-1. Create a Railway project and connect your GitHub repo.
-2. Add service with `Node.js` and deployment from repo.
-3. Set start command: `npm run api` and root path to repo root.
+1. Create a Render Web Service and connect your GitHub repo.
+2. Build command: `pnpm build`
+3. Start command: `pnpm start`
 4. Add environment variables:
-   - `DATABASE_URL=file:./dev.db` (for demo) or your production database.
+   - `DATABASE_URL=<your-render-postgres-connection-url>`
    - `JWT_SECRET=your-secret`
 5. Deploy.
-6. Confirm health: `https://<railway-url>/api/health` returns JSON.
+6. Confirm health: `https://<render-url>/api/health` returns JSON.
 
 ## 2) Frontend on Vercel
 
@@ -18,7 +18,7 @@
 3. Set build command: `npm install && npm run build`.
 4. Set output directory: `dist`.
 5. Add environment variable:
-   - `VITE_API_BASE_URL=https://<railway-url>/api`
+   - `VITE_API_BASE_URL=https://<render-url>/api`
 6. Deploy.
 7. Your single public app URL is `https://<your-vercel-app>.vercel.app`.
 
