@@ -486,7 +486,7 @@ app.get("/api/matches", async (req: any, res: any) => {
           data: request,
         };
       })
-        .filter((item): item is NonNullable<typeof item> => item !== null)
+        .filter((item: any): item is NonNullable<typeof item> => item !== null)
       .sort((a: any, b: any) => b.score - a.score);
 
       res.json(matches);
